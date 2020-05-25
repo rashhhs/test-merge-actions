@@ -1,0 +1,14 @@
+{
+  "name": "test-merge-actions",
+  "version": "0.0.1",
+  "buildNumber": {
+    "android": 1
+  },
+  "scripts": {
+    "upgrade:on:merge": "node ./upgrade-version.js minor"
+  },
+  "main": "index.js",
+  "repository": "https://github.com/leiteszeke/test-merge-actions.git",
+  "author": "Ezequiel Leites <ezequiel@leites.dev>",
+  "license": "MIT"
+}
