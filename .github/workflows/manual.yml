@@ -10,7 +10,20 @@ on:
 
 jobs:
   buildApp:
+    name: "Build App"
     runs-on: ubuntu-latest
     steps:
-    - run: |
-        echo "Run for env: ${{ github.event.inputs.env }}"
+      - name: "Checkout"
+        uses: actions/checkout@v2
+
+      - name: "Install Node"
+        uses: actions/setup-node@v2
+        with:
+          node-version: 12.x
+          check-latest: true
+
+      - name: "Install fastlane"
+        run: "yarn add fastlane"
+
+      - name: "Run fastlane command"
+        run:  "echo \"Run for env: ${{ github.event.inputs.env }}\""
