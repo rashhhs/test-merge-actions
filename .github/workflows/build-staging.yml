@@ -4,8 +4,8 @@ on:
   workflow_dispatch:
 
 jobs:
-  buildApp:
-    name: "Build App"
+  setup:
+    name: "Setup"
     runs-on: ubuntu-latest
     steps:
       - name: "Checkout"
@@ -14,5 +14,10 @@ jobs:
       - name: "Install fastlane"
         run: "sudo gem install fastlane -NV"
 
+  buildApp:
+    name: "Build App"
+    runs-on: ubuntu-latest
+    needs: setup
+    steps:
       - name: "Run fastlane command"
         run:  "bundle exec fastlane launch_ci_build env:\"staging\""
