@@ -1,18 +1,16 @@
+name: "Build iOS and Android App"
+
 on:
   workflow_dispatch:
     inputs:
-      logLevel:
-        description: 'Log level'
+      env:
+        description: 'Environment'
         required: true
-        default: 'warning'
-      tags:
-        description: 'Test scenario tags'
-        required: true
+        default: 'dev'
 
 jobs:
-  printInputs:
+  buildApp:
     runs-on: ubuntu-latest
     steps:
     - run: |
-        echo "Log level: ${{ github.event.inputs.logLevel }}"
-        echo "Tags: ${{ github.event.inputs.tags }}"
+        echo "Run for env: ${{ github.event.inputs.env }}"
