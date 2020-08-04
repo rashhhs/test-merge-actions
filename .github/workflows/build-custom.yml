@@ -1,0 +1,23 @@
+name: "Build iOS and Android App for Custom Environment"
+
+on:
+  workflow_dispatch:
+    inputs:
+      env:
+        description: 'Environment'
+        required: true
+        default: 'dev'
+
+jobs:
+  buildApp:
+    name: "Build App"
+    runs-on: ubuntu-latest
+    steps:
+      - name: "Checkout"
+        uses: actions/checkout@v2
+
+      - name: "Install fastlane"
+        run: "sudo gem install fastlane -NV"
+
+      - name: "Run fastlane command"
+        run:  "bundle exec fastlane launch_ci_build env:\"${{ github.event.inputs.env }}\""

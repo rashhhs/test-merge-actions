@@ -1,12 +1,7 @@
-name: "Build iOS and Android App"
+name: "Build iOS and Android App for Staging Environment"
 
 on:
   workflow_dispatch:
-    inputs:
-      env:
-        description: 'Environment'
-        required: true
-        default: 'dev'
 
 jobs:
   buildApp:
@@ -20,4 +15,4 @@ jobs:
         run: "sudo gem install fastlane -NV"
 
       - name: "Run fastlane command"
-        run:  "echo \"Run for env: ${{ github.event.inputs.env }}\""
+        run:  "bundle exec fastlane launch_ci_build env:\"staging\""
