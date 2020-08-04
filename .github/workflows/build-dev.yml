@@ -1,4 +1,4 @@
-name: "Build iOS and Android App for Test Environment"
+name: "Fastlane for Test Environment"
 
 on:
   workflow_dispatch:

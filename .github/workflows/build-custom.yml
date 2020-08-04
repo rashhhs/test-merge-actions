@@ -1,4 +1,4 @@
-name: "Build iOS and Android App for Custom Environment"
+name: "Fastlane for Custom Environment"
 
 on:
   workflow_dispatch:

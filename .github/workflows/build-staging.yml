@@ -1,4 +1,4 @@
-name: "Build iOS and Android App for Staging Environment"
+name: "Fastlane for Staging Environment"
 
 on:
   workflow_dispatch:

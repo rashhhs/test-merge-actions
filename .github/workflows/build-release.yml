@@ -1,4 +1,4 @@
-name: "Build iOS and Android App for Production Environment"
+name: "Fastlane for Production Environment"
 
 on:
   workflow_dispatch:
