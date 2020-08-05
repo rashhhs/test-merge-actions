@@ -26,5 +26,4 @@ jobs:
     needs: setup
     steps:
       - name: "Run fastlane command"
-        run:  "bundle exec fastlane launch_ci_build env:\"${{ github.event.inputs.env }}\""
-        if: ${{ github.event.inputs.env == 'dev' || github.event.inputs.env == 'beta' || github.event.inputs.env == 'staging' || github.event.inputs.env == 'release' }}
+        run:  "bundle exec fastlane ios ci_${{ github.event.inputs.env }}"

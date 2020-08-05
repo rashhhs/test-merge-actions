@@ -1,0 +1,54 @@
+platform :ios do
+  before_all do |lane, options|
+    cocoapods(clean: true, podfile: "ios/Podfile")
+  end
+
+  # iOS Lanes
+  lane :build do |options|
+    scheme = options.fetch(:scheme)
+    export_method = options.fetch(:export_method)
+    app_identifier = options.fetch(:app_identifier)
+    profile = options.fetch(:profile)
+
+    configuration = options.fetch(:configuration, "Debug")
+    output_name = options.fetch(:output_name, "testApp.ipa")
+
+    settings_to_override = {
+      :BUNDLE_IDENTIFIER => app_identifier,
+      :PROVISIONING_PROFILE_SPECIFIER => profile,
+    }
+
+    export_options = {
+      method: export_method,
+      signingStyle: "manual",
+      provisioningProfiles: {
+        "#{app_identifier}" => "#{profile}"
+      }
+    }
+
+    gym(
+      scheme: scheme,
+      configuration: configuration,
+      xcargs: settings_to_override,
+      workspace: "ios/testApp.xcworkspace",
+      export_options: export_options,
+      output_name: output_name
+    )
+  end
+
+  lane :dev do |options|
+    build(
+      scheme: "testApp",
+      sign_type: "development",
+      configuration: "Debug",
+      export_method: "development",
+      app_identifier: "org.reactjs.native.example.testApp",
+      output_name: "testApp.ipa",
+      token: options.fetch(:token, false)
+    )
+  end
+
+  lane :ci_dev do |options|
+    dev(options)
+  end
+end

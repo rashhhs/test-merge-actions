@@ -20,4 +20,4 @@ jobs:
     needs: setup
     steps:
       - name: "Run fastlane command"
-        run:  "bundle exec fastlane launch_ci_build env:\"staging\""
+        run:  "bundle exec fastlane ios ci_staging"

@@ -5,10 +5,32 @@
     "android": 1
   },
   "scripts": {
-    "upgrade:on:merge": "node ./upgrade-version.js minor"
+    "upgrade:on:merge": "node ./upgrade-version.js minor",
+    "android": "react-native run-android",
+    "ios": "react-native run-ios",
+    "start": "react-native start",
+    "test": "jest",
+    "lint": "eslint ."
   },
   "main": "index.js",
   "repository": "https://github.com/leiteszeke/test-merge-actions.git",
   "author": "Ezequiel Leites <ezequiel@leites.dev>",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "react": "16.13.1",
+    "react-native": "0.63.2"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.11.1",
+    "@babel/runtime": "^7.11.1",
+    "@react-native-community/eslint-config": "^2.0.0",
+    "babel-jest": "^26.2.2",
+    "eslint": "^7.6.0",
+    "jest": "^26.2.2",
+    "metro-react-native-babel-preset": "^0.61.0",
+    "react-test-renderer": "16.13.1"
+  },
+  "jest": {
+    "preset": "react-native"
+  }
 }
