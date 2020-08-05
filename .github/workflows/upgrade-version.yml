@@ -7,9 +7,6 @@ on:
         description: 'Type'
         required: true
         default: 'minor'
-      version:
-        description: 'New Version'
-        required: false
 
 jobs:
   upgradeVersion:
@@ -18,11 +15,6 @@ jobs:
     steps:
       - name: "Checkout"
         uses: actions/checkout@v2
-
-      - name: "Install node"
-        uses: actions/setup-node@v1
-        with:
-          node-version: '12'
 
       - name: "Run upgrade command"
         run: "node ./upgrade-version.js ${{ github.event.inputs.type }} ${{ github.event.inputs.version }}"
