@@ -43,6 +43,7 @@ platform :ios do
       configuration: "Debug",
       export_method: "development",
       app_identifier: "org.reactjs.native.example.testApp",
+      profile: "org.reactjs.native.example.testApp",
       output_name: "testApp.ipa",
       token: options.fetch(:token, false)
     )

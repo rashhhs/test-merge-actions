@@ -20,13 +20,10 @@ DerivedData
 *.hmap
 *.ipa
 *.xcuserstate
-project.xcworkspace
-vendor
 
 # Android/IntelliJ
 #
 build/
-android/app/production
 .idea
 .gradle
 local.properties
@@ -42,7 +39,7 @@ yarn-error.log
 buck-out/
 \.buckd/
 *.keystore
-!android/app/keystores/debug.keystore
+!debug.keystore
 
 # fastlane
 #
@@ -51,21 +48,12 @@ buck-out/
 # For more information about the recommended setup visit:
 # https://docs.fastlane.tools/best-practices/source-control/
 
-**/fastlane/report.xml
-**/fastlane/README.md
-**/fastlane/Preview.html
-**/fastlane/screenshots
+*/fastlane/report.xml
+*/fastlane/Preview.html
+*/fastlane/screenshots
 
 # Bundle artifact
 *.jsbundle
 
 # CocoaPods
-/ios/Pods
-
-#custom
-translations/locales/locales.js
-
-# react-native-config codegen
-ios/tmp.xcconfig
-*.dSYM.zip
-.env
+/ios/Pods/
